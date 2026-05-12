@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 export default function Bai3() {
-  const taiKhona = {
+  const taiKhoan = {
     tenDn: "toan",
     matkhau: "123",
   };
@@ -9,11 +9,11 @@ export default function Bai3() {
   const input_ten = useRef<HTMLInputElement>(null);
   const input_mk = useRef<HTMLInputElement>(null);
 
-  const dangnhap = () => {
+  const dangNhap = () => {
     const ten = input_ten.current?.value.trim() || "";
     const mk = input_mk.current?.value.trim() || "";
 
-    if (ten === taiKhona.tenDn && mk === taiKhona.matkhau)
+    if (ten === taiKhoan.tenDn && mk === taiKhoan.matkhau)
       alert("đăng nhập thành công");
     else alert("đăng nhập thất bại");
   };
@@ -36,7 +36,7 @@ export default function Bai3() {
       />
       <button
         onClick={() => {
-          dangnhap();
+          dangNhap();
         }}
         type="button"
         className="btn btn-success mt-2 container"
