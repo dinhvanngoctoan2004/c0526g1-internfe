@@ -22,7 +22,7 @@ export default function Bai2() {
       <p>Danh Sach Sinh Viên</p>
       <div className="danhSach">
         {danhSachSV.map((e) => (
-          <p>
+          <p className="pt-2">
             họ tên: {e.hoTen} | Năm Sinh: {e.namSinh}
           </p>
         ))}

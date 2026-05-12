@@ -12,11 +12,12 @@ export default function Bai1() {
     null,
     "Danh sách trung ương thành phố trung ương của việt nam",
   );
-  const Hn = React.createElement("p", null, "+ Hà nội");
-  const sg = React.createElement("p", null, "+ Sài Gòn");
-  const Dn = React.createElement("p", null, "+ Đà nẵng");
-  const Hp = React.createElement("p", null, "+ Hải phòng");
-  const ct = React.createElement("p", null, "+ Cần thơ");
+  const Hn = React.createElement("li", null, "Hà nội");
+  const sg = React.createElement("li", null, "Sài Gòn");
+  const Dn = React.createElement("li", null, "Đà nẵng");
+  const Hp = React.createElement("li", null, "Hải phòng");
+  const ct = React.createElement("li", null, "Cần thơ");
+  const ds = React.createElement("ul", null, Hn, sg, Dn, Hp, ct);
   const boxNgoai = React.createElement(
     "div",
     {
@@ -33,11 +34,7 @@ export default function Bai1() {
       },
     },
     theH1,
-    Hn,
-    sg,
-    Dn,
-    Hp,
-    ct,
+    ds,
   );
   return boxNgoai;
 }
