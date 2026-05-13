@@ -1,0 +1,107 @@
+.boxDanhSachSV{
+  padding: 10px;
+  border-radius: 1px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  width: 500px;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  margin-top: 20px;
+  display: flex;
+
+  
+  flex-direction: column;
+}
+.danhSach{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.bang{
+  width: 100%;
+  font: normal;
+  border: 1;
+}
+/* class componan bài 2 */
+
+.Bai2Class_boxCha{
+  display:flex;
+  gap:2px;
+  padding: 20px;
+  background-Color:rgb(6,130,255,0.1);
+  border:1px solid black;
+  width:700px;
+  border-Radius:10px;
+  margin:20px;
+  flex-direction:column;
+}
+.Bai2Class_h2{
+  font-weight: 700;
+  color:#002060 ;
+  width: 100%;
+  text-align: center;
+}
+.Bai2Class_input{
+  border-radius: 10px;
+  outline: none;
+  border: 0.5px solid rgba(0, 0, 0, 0.542);
+  padding: 10px;
+  width: 100%;
+}
+.Bai2Class_boxIput{
+  display: flex;
+  gap: 5px;
+}
+.Bai2Class_button{
+  padding:5px 10px;
+  background-color: #002060;
+  border-radius: 10px;
+  font-weight: 700;
+  color: white;
+}
+.Bai2Class_boxToDo{
+  margin-top: 20px;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Bai2Class_p{
+ 
+}
+.Bai2Class_boxTT{
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.Bai3Class_boxDN{
+  width: 500px;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.card{
+  width: 500px;
+  margin: 20px;
+}
+.Bai3Class_baoLoi{
+  width: 100%;
+  text-align: center;
+  color: red;
+}
+.Bai3Class_boxButton{
+  display: flex;
+  gap: 5px;
+}
