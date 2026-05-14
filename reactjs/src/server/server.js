@@ -124,11 +124,11 @@ export const dangXuat=()=>{
 //         gioiTinh:'Nam'
 //     },
 
-export const loadDanhSachSV=()=>{
+export const loadStudentList =()=>{
     return [...danhSachSV];
 }
 
-export const themSinhVien=(id,HoTen,NamSinh,gioiTinh)=>{
+export const addStudent =(id,HoTen,NamSinh,gioiTinh)=>{
     const newData={
         id:id,
         hoTen:HoTen,
@@ -140,7 +140,7 @@ export const themSinhVien=(id,HoTen,NamSinh,gioiTinh)=>{
     
 }
 
-export const xoaDanhSachSinhVien=(id)=>{
+export const deleteStudent =(id)=>{
     console.log("đã vào xóa");
     danhSachSV.splice(id,1);
     

@@ -1,50 +1,46 @@
 import "./buoi4_hook.css";
-import {
-  loadDanhSachSV,
-  themSinhVien,
-  xoaDanhSachSinhVien,
-} from "../server/server";
-import { use, useEffect, useRef, useState } from "react";
+import { loadStudentList, addStudent, deleteStudent } from "../server/server";
+import { useEffect, useRef, useState } from "react";
 import XacNhanXoa from "./xacNhanXoa";
 export default function Bai1Hook_buoi4() {
-  const [DataSinhVien, setDataSinhVien] = useState<any[]>([]);
-  const [hienXNXoa, sethienXNXa] = useState(false);
-  const [idXoa, setidXoa] = useState(0);
-  const [tenSVXoa, settenSVXoa] = useState("");
+  const [studentData, setstudentData] = useState<any[]>([]);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deleteId, setdeleteId] = useState(0);
+  const [deleteStudentName, setdeleteStudentName] = useState("");
 
-  const input_hoTen = useRef<HTMLInputElement>(null);
-  const input_namSinh = useRef<HTMLInputElement>(null);
-  const input_gioiTinh = useRef<HTMLInputElement>(null);
+  const input_fullName = useRef<HTMLInputElement>(null);
+  const input_birthYear = useRef<HTMLInputElement>(null);
+  const input_gender = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    setDataSinhVien(loadDanhSachSV);
+    setstudentData(loadStudentList);
   }, []);
 
-  const handelThem = () => {
-    const id = DataSinhVien.length + 1;
-    const hoTen = input_hoTen.current?.value || "";
-    const gioiTinh = input_gioiTinh.current?.value || "";
-    const namSinh = input_namSinh.current?.value || "";
-    themSinhVien(id, hoTen, namSinh, gioiTinh);
-    setDataSinhVien(loadDanhSachSV);
-    input_hoTen.current!.value = "";
-    input_namSinh.current!.value = "";
-    input_gioiTinh.current!.value = "";
+  const handleAddStudent = () => {
+    const id = studentData.length + 1;
+    const hoTen = input_fullName.current?.value || "";
+    const gioiTinh = input_gender.current?.value || "";
+    const namSinh = input_birthYear.current?.value || "";
+    addStudent(id, hoTen, namSinh, gioiTinh);
+    setstudentData(loadStudentList);
+    input_fullName.current!.value = "";
+    input_birthYear.current!.value = "";
+    input_gender.current!.value = "";
   };
 
-  const handelXoa = () => {
-    xoaDanhSachSinhVien(idXoa);
-    setDataSinhVien(loadDanhSachSV);
-    sethienXNXa(false);
+  const handleDeleteStudent = () => {
+    deleteStudent(deleteId);
+    setstudentData(loadStudentList);
+    setShowDeleteConfirm(false);
   };
 
   return (
     <>
-      {hienXNXoa && (
+      {showDeleteConfirm && (
         <XacNhanXoa
-          tat={() => sethienXNXa(false)}
-          XacNhanXoa={handelXoa}
-          tenSinhVien={tenSVXoa}
+          tat={() => setShowDeleteConfirm(false)}
+          XacNhanXoa={handleDeleteStudent}
+          tenSinhVien={deleteStudentName}
         />
       )}
       <p className="Bai1_Ten">Bài 1</p>
@@ -54,26 +50,26 @@ export default function Bai1Hook_buoi4() {
           <h2 className="Bai1_h2">Danh Sách Sinh Viên</h2>
           <div className="Bai1_boxInput">
             <input
-              ref={input_hoTen}
+              ref={input_fullName}
               className="Bai1_Input"
               type="text"
               placeholder="nhập tên sinh viên"
             />
             <input
-              ref={input_namSinh}
+              ref={input_birthYear}
               className="Bai1_Input"
               type="number"
               placeholder="nhập năm sinh của sinh viên"
             />
             <input
-              ref={input_gioiTinh}
+              ref={input_gender}
               className="Bai1_Input"
               type="text"
               placeholder="nhập giới tính"
             />
             <button
               onClick={() => {
-                handelThem();
+                handleAddStudent();
               }}
               className="Bai1_buttonThem btn btn-success"
             >
@@ -96,8 +92,8 @@ export default function Bai1Hook_buoi4() {
               </tr>
             </thead>
             <tbody>
-              {DataSinhVien &&
-                DataSinhVien.map((item, index) => (
+              {studentData &&
+                studentData.map((item, index) => (
                   <tr>
                     <th scope="row">{index + 1}</th>
                     <td>{item.hoTen}</td>
@@ -106,14 +102,14 @@ export default function Bai1Hook_buoi4() {
                     <td style={{ width: "1%" }}>
                       <button
                         onClick={() => {
-                          sethienXNXa(true);
-                          setidXoa(index);
-                          settenSVXoa(item.hoTen);
+                          setShowDeleteConfirm(true);
+                          setdeleteId(index);
+                          setdeleteStudentName(item.hoTen);
                         }}
                         type="button"
                         className="btn btn-danger"
                       >
-                        Danger
+                        Delete
                       </button>
                     </td>
                   </tr>
