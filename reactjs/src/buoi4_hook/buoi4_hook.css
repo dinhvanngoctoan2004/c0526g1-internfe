@@ -1,0 +1,90 @@
+.Bai1_Ten{
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 30px;
+}
+.Bai1_boxCha{
+    width: 700px;
+    padding: 20px;
+    background-color: #e0f2e2;
+    border-radius: 10px;
+    border: 0.1px solid rgba(0, 0, 0, 0.13);
+    margin: 10px auto;
+}
+.Bai1_h2{
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    color: #042021;
+}
+.Bai1_boxInput{
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+    flex-direction: column;
+}
+.Bai1_Input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    border: 0.5px solid rgba(0, 0, 0, 0.163);
+}
+.Bai1_buttonThem{
+    background-color: #245c51;
+    font-weight: 700;
+}
+.Bai1_boxBang{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: white;
+}
+.Bai2_boxCha{
+    padding: 10px;
+    background-color: #e0f2e2;
+    border-radius: 10px;
+    border: 0.1px solid rgba(0, 0, 0, 0.13);
+    margin: 10px auto;
+    width: 200px;
+    display: flex;
+    height: fit-content;
+    gap: 5px;
+    align-items: center;
+    overflow: hidden;
+}
+.Bai2_number{
+    padding: 5px;
+    background-color: white;
+    width: 100px;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 0;
+}
+
+.Bai2_boxButton{
+    height: fit-content;
+    display: flex;
+    gap: 5px;
+}
+.Bai2_button{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    transition: all 0.3ms ;
+    border-radius: 5px;
+    
+}
+.Bai2_button:hover{
+    background-color: #ffffff;
+    scale: 1.01;
+}
+.Bai2_imgButton{
+    height: 90%;
+}

@@ -12,17 +12,23 @@ import Bai3 from "./tong_quan_reactjs/bai3.js";
 import Bai1Class from "./class_componan/Bai1Class.jsx";
 import { Bai2Class } from "./class_componan/Bai2Class.jsx";
 import { Bai3Class } from "./class_componan/Bai3Class.jsx";
+import Bai1Hook_buoi4 from "./buoi4_hook/Bai1Hook_buoi4.js";
+import { Bai2Hook_buoi4 } from "./buoi4_hook/Bai2Hook_buoi4.js";
 
 function App() {
   return (
     <>
+      {/* /////////// buổi 2 ////////////// */}
       {/* <Bai1 />
       <Bai2 />
       <Bai3 /> */}
-
-      <Bai1Class />
+      {/* /////////////buổi 3 ////////////////*/}
+      {/* <Bai1Class />
       <Bai2Class />
-      <Bai3Class />
+      <Bai3Class /> */}
+      {/* ///////////// buổi 4 ///////////////////// */};
+      <Bai1Hook_buoi4 />
+      <Bai2Hook_buoi4 />
     </>
   );
 }

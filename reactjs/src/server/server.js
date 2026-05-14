@@ -1,23 +1,27 @@
 
 // class componan buổi 3 ngày 13/5
 // bài 1
-const danhSachSV=[
+let danhSachSV=[
     {
+        
         hoTen:"Toàn",
         namSinh: 2004,
         gioiTinh:'Nam'
     },
     {
+        
         hoTen:"Ngọc",
         namSinh: 2003,
         gioiTinh:'Nữ'
     },
     {
+    
         hoTen:"Văn",
         namSinh: 2002,
         gioiTinh:'Nam'
     },
     {
+      
         hoTen:"Đinh",
         namSinh: 2001,
         gioiTinh:'Nam'
@@ -109,5 +113,37 @@ export const dangXuat=()=>{
     console.log("đã đăng xuất");
     
     taiKhoanHienTai=data;
+}
+
+//  buổi 4 hook ///////////////////////////////
+
+// {
+//         id:3,
+//         hoTen:"Đinh",
+//         namSinh: 2001,
+//         gioiTinh:'Nam'
+//     },
+
+export const loadDanhSachSV=()=>{
+    return [...danhSachSV];
+}
+
+export const themSinhVien=(id,HoTen,NamSinh,gioiTinh)=>{
+    const newData={
+        id:id,
+        hoTen:HoTen,
+        namSinh:NamSinh,
+        gioiTinh:gioiTinh
+    }
+    danhSachSV.push(newData);
+    console.log("dã thêm sinh viên");
+    
+}
+
+export const xoaDanhSachSinhVien=(id)=>{
+    console.log("đã vào xóa");
+    danhSachSV.splice(id,1);
+    
+    
 }
 
