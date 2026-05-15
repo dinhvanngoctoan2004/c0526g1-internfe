@@ -1,0 +1,21 @@
+.Home_Table{
+        margin-top: 20px;
+    padding: 10px;
+    background-color: white;
+    width: 1000px;
+    margin: 10px auto;
+
+    border-radius: 10px;
+}
+.Box_addStuden{
+    padding: 20px;
+   
+    border: 1px solid rgba(0, 0, 0, 0.123);
+    width: 700px;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+.h1_add{
+    width: 100%;
+    text-align: center
+}
