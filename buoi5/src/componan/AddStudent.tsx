@@ -76,7 +76,7 @@ const AddStudent = () => {
                 className="form-check-input"
                 type="radio"
                 name="sex"
-                value="male"
+                value="Male"
               />
               Male
               <Field

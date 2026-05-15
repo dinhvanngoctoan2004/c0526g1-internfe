@@ -2,28 +2,28 @@ let dataStudents=[
     {  
         name:"Toàn",
         age: 20,
-        sex:'male',
+        sex:'Male',
         course:'java'
     },
     {
         
         name:"Ngọc",
         age: 21,
-        sex:'female',
+        sex:'Felmale',
         course:'java'
     },
     {
     
         name:"Văn",
         age: 22,
-        sex:'male',
+        sex:'Male',
         course:'js'
             
     },
     {
         name:"Đinh",
         age: 23,
-        sex:'male',
+        sex:'Male',
         course:'js'
     },
 ]
