@@ -16,6 +16,13 @@ const Home = () => {
     setstudentData(getAllDataStudents);
     setShowDeleteConfirm(false);
   };
+  const [Seacrch, setSearch] = useState("");
+  const handelSearch = (event) => {
+    setSearch(event.target.value);
+  };
+  const filterStudent = studentData.filter((item) => {
+    return item.name.toLowerCase().includes(Seacrch.toLowerCase());
+  });
 
   useEffect(() => {
     setstudentData(getAllDataStudents());
@@ -30,7 +37,15 @@ const Home = () => {
           nameStudent={deleteStudentName}
         />
       )}
+
       <div className="Home_Table">
+        <input
+          onChange={handelSearch}
+          value={Seacrch}
+          type="text"
+          className="form-control"
+          style={{ margin: "5px 0px", width: "200px" }}
+        />
         <table className="table">
           <thead>
             <tr>
@@ -45,38 +60,37 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {studentData &&
-              studentData.map((item, index) => (
-                <tr>
-                  <th scope="row">{index + 1}</th>
-                  <td>{item.name}</td>
-                  <td>{item.age}</td>
-                  <td>{item.sex}</td>
-                  <td>{item.course}</td>
-                  <td style={{ width: "1%", display: "flex", gap: "5px" }}>
-                    <button
-                      onClick={() => {
-                        setShowDeleteConfirm(true);
-                        setdeleteId(index);
-                        setdeleteStudentName(item.name);
-                      }}
-                      type="button"
-                      className="btn btn-danger"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      onClick={() => {
-                        Navigate(`/studen/update/${index}`);
-                      }}
-                      type="button"
-                      className="btn btn-primary"
-                    >
-                      Update
-                    </button>
-                  </td>
-                </tr>
-              ))}
+            {filterStudent?.map((item, index) => (
+              <tr>
+                <th scope="row">{index + 1}</th>
+                <td>{item.name}</td>
+                <td>{item.age}</td>
+                <td>{item.sex}</td>
+                <td>{item.course}</td>
+                <td style={{ width: "1%", display: "flex", gap: "5px" }}>
+                  <button
+                    onClick={() => {
+                      setShowDeleteConfirm(true);
+                      setdeleteId(index);
+                      setdeleteStudentName(item.name);
+                    }}
+                    type="button"
+                    className="btn btn-danger"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    onClick={() => {
+                      Navigate(`/studen/update/${index}`);
+                    }}
+                    type="button"
+                    className="btn btn-primary"
+                  >
+                    Update
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
