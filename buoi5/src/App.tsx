@@ -9,6 +9,7 @@ import Home from "./componan/Home";
 import "bootstrap/dist/css/bootstrap.css";
 import AddStudent from "./componan/AddStudent";
 import UpdateStudent from "./componan/UpdateStudent";
+import Footed from "./componan/Footed";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path={`/studen/add`} element={<AddStudent />} />
         <Route path={`/studen/update/:id`} element={<UpdateStudent />} />
       </Routes>
+      <Footed />
     </>
   );
 }
