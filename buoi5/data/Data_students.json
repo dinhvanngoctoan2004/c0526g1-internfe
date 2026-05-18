@@ -1,0 +1,33 @@
+{
+  "dataStudents": [
+    {
+      "name": "ĐINH VĂN NGỌC TOÀN 123456",
+      "age": 123,
+      "sex": "Felmale",
+      "course": "ts",
+      "id": "fpKxgdEtQpI"
+    },
+    {
+      "name": "ádf",
+      "age": 456,
+      "sex": "Male",
+      "course": "js",
+      "id": "Y0JMR2cmPsA"
+    },
+    {
+      "name": "ĐINH VĂN NGỌC TOÀN",
+      "age": 1234,
+      "sex": "Male",
+      "course": "js",
+      "id": "RRZm23Cf4jg"
+    },
+    {
+      "name": "ĐINH VĂN NGỌC TOÀN",
+      "age": 123,
+      "sex": "",
+      "course": "js",
+      "id": "i4krI3mfZBM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

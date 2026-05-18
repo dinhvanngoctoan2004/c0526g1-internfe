@@ -4,6 +4,7 @@ import { getAllDataCourse } from "../server/courseServer";
 import { addStudent } from "../server/studenServer";
 import * as Yup from "yup";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AddStudent = () => {
   const { id } = useParams();
@@ -29,6 +30,7 @@ const AddStudent = () => {
     //   course: JSON.parse(value.course),
     // };
     addStudent(value);
+
     navigate(-1);
   };
 

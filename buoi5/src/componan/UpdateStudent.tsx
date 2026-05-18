@@ -1,11 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useEffect, useState } from "react";
 import { getAllDataCourse } from "../server/courseServer";
-import {
-  addStudent,
-  getDetailStudent,
-  updateStudent,
-} from "../server/studenServer";
+import { getDetailStudent, updateStudent } from "../server/studenServer";
 import * as Yup from "yup";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -23,9 +19,14 @@ const UpdateStudent = () => {
 
   const [DataCourse, setDataCourse] = useState<any[]>([]);
 
+  const getDataDetailStudent = async () => {
+    const data = await getDetailStudent(id);
+    setDataStudent(data);
+  };
+
   useEffect(() => {
     setDataCourse(getAllDataCourse);
-    setDataStudent(getDetailStudent(id));
+    getDataDetailStudent();
     console.log(getDetailStudent(id));
   }, []);
 

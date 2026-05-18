@@ -1,57 +1,69 @@
-let dataStudents=[
-    {  
-        name:"Toàn",
-        age: 20,
-        sex:'Male',
-        course:'java'
-    },
-    {
-        
-        name:"Ngọc",
-        age: 21,
-        sex:'Felmale',
-        course:'java'
-    },
-    {
-    
-        name:"Văn",
-        age: 22,
-        sex:'Male',
-        course:'js'
-            
-    },
-    {
-        name:"Đinh",
-        age: 23,
-        sex:'Male',
-        course:'js'
-    },
-]
+import axios from "axios";
+import { toast } from "react-toastify";
 
-export const getAllDataStudents=()=>{
-    return [...dataStudents]
-}
-export const addStudent =(data)=>{
-    const newData={
+const API= import.meta.env.VITE_API_URL;
+export const getAllDataStudents=async()=>{
+    console.log(API);
+    
+    try{
+        const res = await axios.get(`${API}/dataStudents`);
+        console.log(res.data);
+        return [...res.data];
         
-        name:data.name,
-        age:data.age,
-        sex:data.sex,
-        course:data.course
+    }catch(err){
+        console.log("err : "+err);
+        return [];
     }
-    dataStudents.push(newData);
-    console.log("ss");
     
 }
-export const deleteStudent =(id)=>{
-    console.log("delte");
-    dataStudents.splice(id,1);
+export const addStudent =async(data)=>{
+    try{
+        const newData={
+                name:data.name,
+                age:data.age,
+                sex:data.sex,
+                course:data.course
+            }
+            const res = await axios.post(`${API}/dataStudents`,newData);
+            toast.success("Add student success");
+    }catch(err){
+        console.log("err: "+ err);
+        toast.error("Add student false");
+    }
+    
+}
+export const deleteStudent =async(id)=>{
+    try{
+        console.log("delte");
+        const res = await axios.delete(`${API}/dataStudents/${id}`);
+        toast.success("delete student success");
+    }catch(err){
+        console.log("err : "+err);
+        toast.error("delete student false");
+    }
+  
 }
 // lấy data dựa trên index
 
-export const getDetailStudent=(index)=>{
-    return dataStudents[index];
+export const getDetailStudent=async(id)=>{
+   
+    try{    
+        const res= await axios.get(`${API}/dataStudents/${id}`);
+        return res.data;
+    }catch(err){
+        console.log("err : "+err);
+        
+    }
 }
-export const updateStudent=(index, newData)=>{
-    dataStudents[index]= newData;
+export const updateStudent=async(id, newData)=>{
+  
+    try{
+        const res= await axios.patch(`${API}/dataStudents/${id}`,newData);
+        toast.success("update student success");
+        
+    }catch(err){
+        console.log("err : "+err);
+        toast.error("update student false");
+    }
+
 }

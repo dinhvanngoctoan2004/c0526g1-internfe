@@ -12,10 +12,15 @@ const Home = () => {
 
   const Navigate = useNavigate();
 
-  const handleDeleteStudent = () => {
-    deleteStudent(deleteId);
-    setstudentData(getAllDataStudents);
+  const getDataStudent = async () => {
+    const newdata = await getAllDataStudents();
+    setstudentData(newdata);
+  };
+
+  const handleDeleteStudent = async () => {
+    await deleteStudent(deleteId);
     setShowDeleteConfirm(false);
+    getDataStudent();
   };
   const [Seacrch, setSearch] = useState("");
   const handelSearch = (event) => {
@@ -26,7 +31,7 @@ const Home = () => {
   });
 
   useEffect(() => {
-    setstudentData(getAllDataStudents());
+    getDataStudent();
   }, []);
 
   return (
@@ -62,7 +67,7 @@ const Home = () => {
           </thead>
           <tbody>
             {filterStudent?.map((item, index) => (
-              <tr>
+              <tr key={item.id}>
                 <th scope="row">{index + 1}</th>
                 <td>{item.name}</td>
                 <td>{item.age}</td>
@@ -72,8 +77,8 @@ const Home = () => {
                   <button
                     onClick={() => {
                       setShowDeleteConfirm(true);
-                      setdeleteId(index);
-                      setdeleteStudentName(item.name);
+                      setdeleteId(item.id);
+                      setdeleteStudentName(`${item.name}`);
                     }}
                     type="button"
                     className="btn btn-danger"
@@ -82,7 +87,7 @@ const Home = () => {
                   </button>
                   <button
                     onClick={() => {
-                      Navigate(`/studen/update/${index}`);
+                      Navigate(`/studen/update/${item.id}`);
                     }}
                     type="button"
                     className="btn btn-primary"
