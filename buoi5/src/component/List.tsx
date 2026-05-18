@@ -3,8 +3,7 @@ import { getAllDataStudents, deleteStudent } from "../server/studenServer";
 import ConfirmDeletion from "./confirmDeletion";
 import { useNavigate } from "react-router-dom";
 import Footed from "./Footed";
-
-const Home = () => {
+const List = () => {
   const [studentData, setstudentData] = useState<any[]>([]);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [deleteId, setdeleteId] = useState(0);
@@ -22,18 +21,17 @@ const Home = () => {
     setShowDeleteConfirm(false);
     getDataStudent();
   };
-  const [Seacrch, setSearch] = useState("");
+  const [seacrch, setsearch] = useState("");
   const handelSearch = (event) => {
-    setSearch(event.target.value);
+    setsearch(event.target.value);
   };
   const filterStudent = studentData.filter((item) => {
-    return item.name.toLowerCase().includes(Seacrch.toLowerCase());
+    return item.name.toLowerCase().includes(seacrch.toLowerCase());
   });
 
   useEffect(() => {
     getDataStudent();
   }, []);
-
   return (
     <>
       {showDeleteConfirm && (
@@ -47,7 +45,7 @@ const Home = () => {
       <div className="Home_Table">
         <input
           onChange={handelSearch}
-          value={Seacrch}
+          value={seacrch}
           type="text"
           className="form-control"
           style={{ margin: "5px 0px", width: "200px" }}
@@ -103,4 +101,4 @@ const Home = () => {
     </>
   );
 };
-export default Home;
+export default List;
