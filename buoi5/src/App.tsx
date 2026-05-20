@@ -4,14 +4,15 @@ import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Header from "./componan/Header";
-import Home from "./componan/Home";
+import Header from "./component/Communal/Header";
+import Home from "./page/communal/Home";
 import "bootstrap/dist/css/bootstrap.css";
-import AddStudent from "./componan/AddStudent";
-import UpdateStudent from "./componan/UpdateStudent";
-import Footed from "./componan/Footed";
+import AddStudent from "./component/manage/AddStudent";
+import UpdateStudent from "./component/manage/UpdateStudent";
+import Footed from "./component/Communal/Footed";
 import "bootstrap/dist/js/bootstrap.js";
 import { ToastContainer } from "react-toastify";
+import Login from "./page/communal/Login";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path={`/`} element={<Home />} />
         <Route path={`/studen/add`} element={<AddStudent />} />
         <Route path={`/studen/update/:id`} element={<UpdateStudent />} />
+        <Route path={`/login`} element={<Login />} />
       </Routes>
       <Footed />
     </>

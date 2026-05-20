@@ -1,6 +1,18 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from "../../redux/action";
 
 const Header = () => {
+  const account = useSelector((state) => state.user);
+
+   const dispatch = useDispatch();
+
+
+   const handelLogout = async()=>{
+   
+    const isSucset = dispatch(logout())
+   }
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -30,16 +42,24 @@ const Header = () => {
                 Add Student
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <a className="nav-link" href="#">
-                Pricing
-              </a>
-            </li>
             <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">
-                Disabled
-              </a>
-            </li> */}
+              <Link to={`/login`} className="nav-link">
+                {account ? `${account.id}` : `login`}
+              </Link>
+            </li>
+            {account && (
+              <li
+              onClick={()=>{
+                handelLogout()
+              }}
+                style={{
+                  cursor: "pointer",
+                }}
+                className="nav-item"
+              >
+                logout
+              </li>
+            )}
           </ul>
         </div>
       </div>

@@ -1,15 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useEffect, useState } from "react";
-import { getAllDataCourse } from "../server/courseServer";
-import { addStudent } from "../server/studenServer";
+import { getAllDataCourse } from "../../server/courseServer";
+import { getDetailStudent, updateStudent } from "../../server/studenServer";
 import * as Yup from "yup";
 import { useNavigate, useParams } from "react-router-dom";
-import { toast } from "react-toastify";
 
-const AddStudent = () => {
-  const { id } = useParams();
-
-  const [NewStudent, setNewStudent] = useState({
+const UpdateStudent = () => {
+  const [DataStudent, setDataStudent] = useState<any>({
     name: "",
     age: "",
     sex: "",
@@ -18,10 +15,19 @@ const AddStudent = () => {
 
   const navigate = useNavigate();
 
+  const { id } = useParams();
+
   const [DataCourse, setDataCourse] = useState<any[]>([]);
+
+  const getDataDetailStudent = async () => {
+    const data = await getDetailStudent(id);
+    setDataStudent(data);
+  };
 
   useEffect(() => {
     setDataCourse(getAllDataCourse);
+    getDataDetailStudent();
+    console.log(getDetailStudent(id));
   }, []);
 
   const handelSumit = (value) => {
@@ -29,8 +35,7 @@ const AddStudent = () => {
     //   ...value,
     //   course: JSON.parse(value.course),
     // };
-    addStudent(value);
-
+    updateStudent(id, value);
     navigate(-1);
   };
 
@@ -41,9 +46,10 @@ const AddStudent = () => {
 
   return (
     <div className="Box_addStuden">
-      <h1 className="h2 h1_add">Add student</h1>
+      <h1 className="h2 h1_add">update student</h1>
       <Formik
-        initialValues={NewStudent}
+        enableReinitialize={true}
+        initialValues={DataStudent}
         onSubmit={handelSumit}
         validationSchema={validation}
       >
@@ -107,11 +113,11 @@ const AddStudent = () => {
             type={`submit`}
             className="btn btn-success btn-sm"
           >
-            Add student
+            update student
           </button>
         </Form>
       </Formik>
     </div>
   );
 };
-export default AddStudent;
+export default UpdateStudent;

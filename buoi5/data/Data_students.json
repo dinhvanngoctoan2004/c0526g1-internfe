@@ -27,6 +27,13 @@
       "sex": "",
       "course": "js",
       "id": "i4krI3mfZBM"
+    },
+    {
+      "name": "ĐINH VĂN NGỌC TOÀN",
+      "age": 123,
+      "sex": "Male",
+      "course": "js",
+      "id": "SMgm_Egfu4E"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

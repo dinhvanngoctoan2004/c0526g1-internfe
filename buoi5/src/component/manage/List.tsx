@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { getAllDataStudents, deleteStudent } from "../server/studenServer";
+import { getAllDataStudents, deleteStudent } from "../../server/studenServer";
 import ConfirmDeletion from "./confirmDeletion";
 import { useNavigate } from "react-router-dom";
-import Footed from "./Footed";
+import Footed from "../Communal/Footed";
 const List = () => {
   const [studentData, setstudentData] = useState<any[]>([]);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
